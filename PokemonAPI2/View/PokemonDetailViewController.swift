@@ -60,7 +60,32 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     
     @objc private func compartilhar(){
+        let itens = [self.formatarInfos()]
+        let activityVC = UIActivityViewController(activityItems: itens, applicationActivities: nil)
+        activityVC.popoverPresentationController?.sourceView = self.view
+        self.present(activityVC, animated: true, completion: nil)
+    }
+    
+    
+    private func formatarInfos() -> String{
+        var textoShare = """
+        \(pokemonSelecionado?.name.capitalized ?? "")
+        Altura: \(pokemon?.height ?? 0)
+        Peso: \(pokemon?.weight ?? 0)
+        Tipo:
+        """
         
+        pokemon?.types.forEach({ (type) in
+            textoShare += " \(type.name)"
+        })
+        
+        textoShare += "\nHabilidades: "
+        
+        pokemon?.moves.forEach({ (move) in
+            textoShare += "\n\(move.name)"
+        })
+        
+        return textoShare
     }
     
     
@@ -103,7 +128,7 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
                         }
                     }else{
                         //Error
-                        print("Erro pokemon list view controller")
+                        print("Erro pokemon detail view controller")
                     }
                 }
             }

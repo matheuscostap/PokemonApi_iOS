@@ -195,7 +195,7 @@
                                                     <constraint firstAttribute="width" constant="90" id="duF-px-aWh"/>
                                                     <constraint firstAttribute="height" constant="22" id="pFQ-cB-A69"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
@@ -205,7 +205,7 @@
                                                     <constraint firstAttribute="height" constant="22" id="Agg-3c-zKz"/>
                                                     <constraint firstAttribute="width" constant="90" id="hy9-4y-Omi"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
