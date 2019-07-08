@@ -33,10 +33,18 @@
 		DB745BE022D383BF004B579E /* FakeData.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB745BDF22D383BF004B579E /* FakeData.swift */; };
 		DB745BE222D3AB47004B579E /* PokemonListViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB745BE122D3AB47004B579E /* PokemonListViewModelTest.swift */; };
 		DB745BE422D3B0B5004B579E /* PokemonDetailViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB745BE322D3B0B5004B579E /* PokemonDetailViewModelTest.swift */; };
+		DB745BEC22D3B92C004B579E /* PokemonAPI2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB745BEB22D3B92C004B579E /* PokemonAPI2UITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		DB745BD622D371A4004B579E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DB745B8F22CF86F4004B579E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DB745B9622CF86F4004B579E;
+			remoteInfo = PokemonAPI2;
+		};
+		DB745BEE22D3B92C004B579E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DB745B8F22CF86F4004B579E /* Project object */;
 			proxyType = 1;
@@ -76,6 +84,9 @@
 		DB745BDF22D383BF004B579E /* FakeData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeData.swift; sourceTree = "<group>"; };
 		DB745BE122D3AB47004B579E /* PokemonListViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonListViewModelTest.swift; sourceTree = "<group>"; };
 		DB745BE322D3B0B5004B579E /* PokemonDetailViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonDetailViewModelTest.swift; sourceTree = "<group>"; };
+		DB745BE922D3B92C004B579E /* PokemonAPI2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PokemonAPI2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB745BEB22D3B92C004B579E /* PokemonAPI2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonAPI2UITests.swift; sourceTree = "<group>"; };
+		DB745BED22D3B92C004B579E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +104,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DB745BE622D3B92C004B579E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -101,6 +119,7 @@
 			children = (
 				DB745B9922CF86F4004B579E /* PokemonAPI2 */,
 				DB745BD222D371A4004B579E /* PokemonAPI2Tests */,
+				DB745BEA22D3B92C004B579E /* PokemonAPI2UITests */,
 				DB745B9822CF86F4004B579E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +129,7 @@
 			children = (
 				DB745B9722CF86F4004B579E /* PokemonAPI2.app */,
 				DB745BD122D371A4004B579E /* PokemonAPI2Tests.xctest */,
+				DB745BE922D3B92C004B579E /* PokemonAPI2UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -180,6 +200,15 @@
 			path = PokemonAPI2Tests;
 			sourceTree = "<group>";
 		};
+		DB745BEA22D3B92C004B579E /* PokemonAPI2UITests */ = {
+			isa = PBXGroup;
+			children = (
+				DB745BEB22D3B92C004B579E /* PokemonAPI2UITests.swift */,
+				DB745BED22D3B92C004B579E /* Info.plist */,
+			);
+			path = PokemonAPI2UITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -218,6 +247,24 @@
 			productReference = DB745BD122D371A4004B579E /* PokemonAPI2Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		DB745BE822D3B92C004B579E /* PokemonAPI2UITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DB745BF022D3B92C004B579E /* Build configuration list for PBXNativeTarget "PokemonAPI2UITests" */;
+			buildPhases = (
+				DB745BE522D3B92C004B579E /* Sources */,
+				DB745BE622D3B92C004B579E /* Frameworks */,
+				DB745BE722D3B92C004B579E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DB745BEF22D3B92C004B579E /* PBXTargetDependency */,
+			);
+			name = PokemonAPI2UITests;
+			productName = PokemonAPI2UITests;
+			productReference = DB745BE922D3B92C004B579E /* PokemonAPI2UITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -232,6 +279,10 @@
 						CreatedOnToolsVersion = 10.2.1;
 					};
 					DB745BD022D371A4004B579E = {
+						CreatedOnToolsVersion = 10.2.1;
+						TestTargetID = DB745B9622CF86F4004B579E;
+					};
+					DB745BE822D3B92C004B579E = {
 						CreatedOnToolsVersion = 10.2.1;
 						TestTargetID = DB745B9622CF86F4004B579E;
 					};
@@ -252,6 +303,7 @@
 			targets = (
 				DB745B9622CF86F4004B579E /* PokemonAPI2 */,
 				DB745BD022D371A4004B579E /* PokemonAPI2Tests */,
+				DB745BE822D3B92C004B579E /* PokemonAPI2UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -268,6 +320,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		DB745BCF22D371A4004B579E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DB745BE722D3B92C004B579E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -314,6 +373,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		DB745BE522D3B92C004B579E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DB745BEC22D3B92C004B579E /* PokemonAPI2UITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -321,6 +388,11 @@
 			isa = PBXTargetDependency;
 			target = DB745B9622CF86F4004B579E /* PokemonAPI2 */;
 			targetProxy = DB745BD622D371A4004B579E /* PBXContainerItemProxy */;
+		};
+		DB745BEF22D3B92C004B579E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DB745B9622CF86F4004B579E /* PokemonAPI2 */;
+			targetProxy = DB745BEE22D3B92C004B579E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -534,6 +606,42 @@
 			};
 			name = Release;
 		};
+		DB745BF122D3B92C004B579E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PokemonAPI2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.matheus.PokemonAPI2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokemonAPI2;
+			};
+			name = Debug;
+		};
+		DB745BF222D3B92C004B579E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = PokemonAPI2UITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = br.com.matheus.PokemonAPI2UITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PokemonAPI2;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -560,6 +668,15 @@
 			buildConfigurations = (
 				DB745BD822D371A4004B579E /* Debug */,
 				DB745BD922D371A4004B579E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DB745BF022D3B92C004B579E /* Build configuration list for PBXNativeTarget "PokemonAPI2UITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DB745BF122D3B92C004B579E /* Debug */,
+				DB745BF222D3B92C004B579E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -36,6 +36,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         //Cor da navigation bar
         self.navigationController?.navigationBar.barTintColor = UIColor(red: 255/255, green: 38/255, blue: 0/255, alpha: 1.0)
+        
+        //Para testes
+        self.view.accessibilityIdentifier = "Type List"
     }
     
     

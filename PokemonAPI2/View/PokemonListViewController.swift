@@ -47,6 +47,9 @@ class PokemonListViewController: UIViewController, UICollectionViewDataSource, U
         self.navigationController?.navigationBar.barTintColor = tipoSelecionado?.getColor()
         //Titulo da navigation bar
         self.title = tipoSelecionado?.name.capitalized
+        
+        //Testes
+        self.view.accessibilityIdentifier = "Pokemon List"
     }
     
     
