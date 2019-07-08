@@ -13,13 +13,15 @@ class PokemonRepository{
     private let TYPE_URL = URL(string: "https://pokeapi.co/api/v2/type/")
     private let IMAGE_URL_BASE = "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"
     
-    static let instance = PokemonRepository()
+    private let urlSession: NetworkHandler!
     
-    private init(){}
+    init(_ urlSession: NetworkHandler) {
+        self.urlSession = urlSession
+    }
     
     
     func getTypes(onSuccess: @escaping (_ result: TypeResponse) -> Void, onError: @escaping () -> Void) {
-        let task = URLSession.shared.dataTask(with: TYPE_URL!) { (data, response, error) in
+        self.urlSession.request(url: TYPE_URL!) { (data, response, error) in
             guard let data = data else{
                 onError()
                 return
@@ -34,8 +36,6 @@ class PokemonRepository{
                 onError()
             }
         }
-        
-        task.resume()
     }
     
     
@@ -44,7 +44,7 @@ class PokemonRepository{
         
         var pokeArray: [PokemonApiInfo] = []
         
-        let task = URLSession.shared.dataTask(with: urlType!) { (data, response, error) in
+        self.urlSession.request(url: urlType!) { (data, response, error) in
             guard let data = data else{
                 onError()
                 return
@@ -77,14 +77,12 @@ class PokemonRepository{
                 onError()
             }
         }
-        
-        task.resume()
     }
     
     
     func getPokemonImage(imageURL: String, onSuccess: @escaping (_ data: Data) -> Void, onError: @escaping () -> Void){
         let urlType = URL(string: imageURL)
-        let task = URLSession.shared.dataTask(with: urlType!) { (data, response, error) in
+        self.urlSession.request(url: urlType!) { (data, response, error) in
             guard let data = data else{
                 onError()
                 return
@@ -92,14 +90,12 @@ class PokemonRepository{
             
             onSuccess(data)
         }
-        
-        task.resume()
     }
     
     
     func getPokemon(url: String, onSuccess: @escaping (_ result: PokemonModel) -> Void, onError: @escaping () -> Void){
         let urlType = URL(string: url)
-        let task = URLSession.shared.dataTask(with: urlType!) { (data, response, error) in
+        self.urlSession.request(url: urlType!) { (data, response, error) in
             guard let data = data else{
                 onError()
                 return
@@ -145,8 +141,6 @@ class PokemonRepository{
                 onError()
             }
         }
-        
-        task.resume()
     }
 
     
@@ -171,5 +165,13 @@ class PokemonRepository{
             print("REGEXP ERRO: \(error)")
             return ""
         }
+    }
+}
+
+
+extension URLSession: NetworkHandler{
+    func request(url: URL, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
+        let task = dataTask(with: url, completionHandler: completionHandler)
+        task.resume()
     }
 }

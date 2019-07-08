@@ -15,7 +15,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
     
     var types: [TypeModel] = []
-    let viewModel = TypeViewModel(repository: PokemonRepository.instance)
+    let viewModel = TypeViewModel(repository: PokemonRepository(URLSession.shared))
     
     
     override func viewDidLoad() {

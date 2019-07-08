@@ -17,7 +17,7 @@ class PokemonListViewController: UIViewController, UICollectionViewDataSource, U
     
     var tipoSelecionado: TypeModel?
     var pokemons: [PokemonApiInfo] = []
-    let viewModel = PokemonListViewModel(repository: PokemonRepository.instance)
+    let viewModel = PokemonListViewModel(repository: PokemonRepository(URLSession.shared))
     
     @IBAction func teste(_ sender: Any) {
         self.performSegue(withIdentifier: "pokemonDetail", sender: nil)

@@ -20,7 +20,7 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
     @IBOutlet weak var ivPokemon: UIImageView!
     @IBOutlet weak var viewInfos: UIView!
     
-    let viewModel = PokemonDetailViewModel(repository: PokemonRepository.instance)
+    let viewModel = PokemonDetailViewModel(repository: PokemonRepository(URLSession.shared))
     
     var pokemon: PokemonModel?
     var pokemonSelecionado: PokemonApiInfo?

@@ -13,7 +13,7 @@ class PokemonListCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var lblNome: UILabel!
     @IBOutlet weak var lblNumero: UILabel!
     @IBOutlet weak var ivPokemon: UIImageView!
-    let viewModel = PokemonListViewModel(repository: PokemonRepository.instance)
+    let viewModel = PokemonListViewModel(repository: PokemonRepository(URLSession.shared))
     
     
     var pokemon: PokemonApiInfo!{
