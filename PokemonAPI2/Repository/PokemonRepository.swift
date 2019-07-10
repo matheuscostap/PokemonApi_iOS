@@ -83,39 +83,9 @@ class PokemonRepository{
             }
             
             do{
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let dict = json as? [String: Any]{
-                    let height = dict["height"] as! Int
-                    let weight = dict["weight"] as! Int
-                    var typeArray: [TypeModel] = []
-                    var movesArray: [MoveModel] = []
-                    
-                    let moves = dict["moves"] as? [[String: Any]]
-                    if let moves = moves{
-                        moves.forEach{(moveDic) in
-                            let move = moveDic["move"] as? [String: Any]
-                            if let move = move{
-                                let name = move["name"] as! String
-                                let url = move["url"] as! String
-                                movesArray.append(MoveModel(name: name.capitalized, url: url))
-                            }
-                        }
-                    }
-                    
-                    let types = dict["types"] as? [[String: Any]]
-                    if let types = types{
-                        types.forEach{(typeDic) in
-                            let type = typeDic["type"] as? [String: Any]
-                            if let type = type{
-                                let name = type["name"] as! String
-                                let url = type["url"] as! String
-                                typeArray.append(TypeModel(name: name, url: url))
-                            }
-                        }
-                    }
-                    
-                    onSuccess(PokemonModel(name: "", height: height, weight: weight, moves: movesArray, types: typeArray))
-                }
+                let decoder = JSONDecoder()
+                let res = try decoder.decode(PokemonModel.self, from: data)
+                onSuccess(res)
                 
             }catch let error{
                 print("Erro: \(error)")
@@ -123,57 +93,6 @@ class PokemonRepository{
             }
         }
     }
-    
-    
-    /*func getPokemon(url: String, onSuccess: @escaping (_ result: PokemonModel) -> Void, onError: @escaping () -> Void){
-        let urlType = URL(string: url)
-        self.urlSession.request(url: urlType!) { (data, response, error) in
-            guard let data = data else{
-                onError()
-                return
-            }
-            
-            do{
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let dict = json as? [String: Any]{
-                    let height = dict["height"] as! Int
-                    let weight = dict["weight"] as! Int
-                    var typeArray: [TypeModel] = []
-                    var movesArray: [MoveModel] = []
-                        
-                    let moves = dict["moves"] as? [[String: Any]]
-                    if let moves = moves{
-                        moves.forEach{(moveDic) in
-                            let move = moveDic["move"] as? [String: Any]
-                            if let move = move{
-                                let name = move["name"] as! String
-                                let url = move["url"] as! String
-                                movesArray.append(MoveModel(name: name.capitalized, url: url))
-                            }
-                        }
-                    }
-                    
-                    let types = dict["types"] as? [[String: Any]]
-                    if let types = types{
-                        types.forEach{(typeDic) in
-                            let type = typeDic["type"] as? [String: Any]
-                            if let type = type{
-                                let name = type["name"] as! String
-                                let url = type["url"] as! String
-                                typeArray.append(TypeModel(name: name, url: url))
-                            }
-                        }
-                    }
-                    
-                    onSuccess(PokemonModel(name: "", height: height, weight: weight, moves: movesArray, types: typeArray))
-                }
-                
-            }catch let error{
-                print("Erro: \(error)")
-                onError()
-            }
-        }
-    }*/
     
 }
 

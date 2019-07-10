@@ -101,7 +101,6 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
                         //Success
                         if let pokemon = res.obj{
                             self.pokemon = pokemon
-                            self.pokemon?.name = self.pokemonSelecionado?.name
                             self.preencherTela()
                             self.tableHabilidades.reloadData()
                         }
@@ -138,7 +137,7 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
     
     private func preencherTela(){
         if let pokemon = self.pokemon{
-            self.lblName.text = pokemon.name?.capitalized
+            self.lblName.text = self.pokemonSelecionado?.name.capitalized
             self.lblType1.text = pokemon.types[0].name.uppercased()
             self.lblType1.backgroundColor = pokemon.types[0].getColor()
             

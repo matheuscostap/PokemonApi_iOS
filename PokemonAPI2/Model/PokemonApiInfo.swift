@@ -18,7 +18,6 @@ class PokemonApiInfo: Decodable{
     
     
     required init(from decoder: Decoder) throws {
-        print("---- INIT ----")
         let container = try decoder.container(keyedBy: CodingKeys.self)
         let resp = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .pokemon)
         

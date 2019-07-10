@@ -8,16 +8,14 @@
 
 import Foundation
 
-class PokemonModel: Codable{
+class PokemonModel: Decodable{
     
-    var name: String?
     let height: Int
     let weight: Int
     let moves: [MoveModel]
     let types: [TypeModel]
     
-    init(name: String, height: Int, weight: Int, moves: [MoveModel], types: [TypeModel]) {
-        self.name = name
+    init(height: Int, weight: Int, moves: [MoveModel], types: [TypeModel]) {
         self.height = height
         self.weight = weight
         self.moves = moves

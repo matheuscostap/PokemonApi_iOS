@@ -8,7 +8,7 @@
 
 import Foundation
 
-class TypeResponse: Codable{
+class TypeResponse: Decodable{
     
     var results: [TypeModel] = []
     

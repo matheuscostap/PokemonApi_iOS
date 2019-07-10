@@ -10,14 +10,28 @@ import Foundation
 
 import UIKit
 
-class TypeModel: Codable{
+class TypeModel: Decodable{
     
-    let name: String
-    let url: String
+    var name: String
+    var url: String
     
-    init(name: String, url: String) {
-        self.name = name
-        self.url = url
+    required init(from decoder: Decoder) throws{
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        do{
+            let resp = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .type)
+            self.name = try resp.decode(String.self, forKey: .name)
+            self.url = try resp.decode(String.self, forKey: .url)
+        }catch{
+            self.name = try container.decode(String.self, forKey: .name)
+            self.url = try container.decode(String.self, forKey: .url)
+        }
+    }
+    
+    enum CodingKeys: CodingKey {
+        case type
+        case name
+        case url
     }
     
     
