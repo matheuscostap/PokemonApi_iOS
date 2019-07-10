@@ -55,7 +55,7 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .action, target: self, action: #selector(compartilhar))
         
         //Trazer o loading pra frente
-        self.view.bringSubviewToFront(loadingView)
+        //self.view.bringSubviewToFront(loadingView)
     }
     
     
@@ -94,9 +94,9 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
             DispatchQueue.main.async {
                 if res.isLoading{
                     //Loading
-                    //self.loadingView.isHidden = false
+                    self.loadingView.isHidden = false
                 }else{
-                    //self.loadingView.isHidden = true
+                    self.loadingView.isHidden = true
                     if res.isSuccess{
                         //Success
                         if let pokemon = res.obj{
@@ -118,9 +118,9 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
             DispatchQueue.main.async {
                 if data.isLoading{
                     //Loading
-                    self.loadingView.isHidden = false
+                    //self.loadingView.isHidden = false
                 }else{
-                    self.loadingView.isHidden = true
+                    //self.loadingView.isHidden = true
                     if data.isSuccess{
                         //Success
                         if let data = data.obj{

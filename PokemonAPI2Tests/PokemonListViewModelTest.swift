@@ -56,7 +56,7 @@ class PokemonListViewModelTest: XCTestCase {
         self.repository = PokemonRepository(networkSuccess)
         self.pokelistViewModel = PokemonListViewModel(repository: repository)
         
-        self.pokelistViewModel.event = {(res) in
+        self.pokelistViewModel.imageEvent = {(res) in
             if !res.isLoading{
                 XCTAssert(res.isSuccess && res.obj != nil, "Retorno deveria ser sucesso e obj != nil")
             }
@@ -68,12 +68,35 @@ class PokemonListViewModelTest: XCTestCase {
         self.repository = PokemonRepository(networkError)
         self.pokelistViewModel = PokemonListViewModel(repository: repository)
         
-        self.pokelistViewModel.event = {(res) in
+        self.pokelistViewModel.imageEvent = {(res) in
             if !res.isLoading{
                 XCTAssert(res.error && res.obj == nil, "Retorno deveria ser error e obj == nil")
             }
         }
         self.pokelistViewModel.getPokemonImage(imageURL: "www.teste.com")
+    }
+    
+    func testRepositoryJSONData(){
+        self.repository = PokemonRepository(networkSuccess)
+        self.pokelistViewModel = PokemonListViewModel(repository: repository)
+        
+        self.pokelistViewModel.event = {(res) in
+            if !res.isLoading{
+                XCTAssert(res.isSuccess && res.obj != nil, "Objeto deveria ser sucesso e obj != nil")
+                if res.isSuccess{
+                    let poke = res.obj?.results[0]
+                    if let poke = poke{
+                        XCTAssert(poke.number != "" && poke.number != nil, "PokeApiInfo deveria ter um number != vazio")
+                        XCTAssert(poke.url != "" && poke.url != nil, "PokeApiInfo deveria ter uma url != vazio")
+                        XCTAssert(poke.name != "" && poke.name != nil, "PokeApiInfo deveria ter um name != vazio")
+                        XCTAssert(poke.imageURL != "" && poke.imageURL != nil
+                            , "PokeApiInfo deveria ter uma imageURL != vazio")
+                    }
+                }
+            }
+        }
+        
+        self.pokelistViewModel.getPokemonByType(url: "www.teste.com")
     }
 
 

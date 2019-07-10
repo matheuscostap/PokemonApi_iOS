@@ -8,11 +8,15 @@
 
 import Foundation
 
-class PokemonApiInfoResponse{
+class PokemonApiInfoResponse: Decodable{
     
     var results: [PokemonApiInfo] = []
     
     init(results: [PokemonApiInfo]) {
         self.results = results
+    }
+    
+    enum CodingKeys: String, CodingKey{
+        case results = "pokemon"
     }
 }
