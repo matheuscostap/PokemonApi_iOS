@@ -31,13 +31,4 @@ class PokemonListViewModel{
         })
     }
     
-    
-    func getPokemonImage(imageURL: String){
-        self.imageEvent(AbstractModel(isLoading: true, isSuccess: false, error: false, obj: nil))
-        repository.getPokemonImage(imageURL: imageURL, onSuccess: { (data) in
-            self.imageEvent(AbstractModel(isLoading: false, isSuccess: true, error: false, obj: data))
-        }, onError: {
-            self.imageEvent(AbstractModel(isLoading: false, isSuccess: false, error: true, obj: nil))
-        })
-    }
 }

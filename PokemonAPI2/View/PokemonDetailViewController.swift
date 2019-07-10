@@ -35,7 +35,8 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
         observarViewModel()
         if let selec = pokemonSelecionado{
             viewModel.getPokemon(url: selec.url)
-            viewModel.getPokemonImage(imageURL: selec.imageURL)
+            let url = URL(string: selec.imageURL)
+            self.ivPokemon.kf.setImage(with: url!)
         }
         
         if let type = type{
@@ -103,27 +104,6 @@ class PokemonDetailViewController: UIViewController, UITableViewDelegate, UITabl
                             self.pokemon = pokemon
                             self.preencherTela()
                             self.tableHabilidades.reloadData()
-                        }
-                    }else{
-                        //Error
-                        print("Erro pokemon detail view controller")
-                    }
-                }
-            }
-        }
-        
-        //Imagem
-        viewModel.imageEvent = { (data) in
-            DispatchQueue.main.async {
-                if data.isLoading{
-                    //Loading
-                    //self.loadingView.isHidden = false
-                }else{
-                    //self.loadingView.isHidden = true
-                    if data.isSuccess{
-                        //Success
-                        if let data = data.obj{
-                            self.ivPokemon.image = UIImage(data: data)
                         }
                     }else{
                         //Error

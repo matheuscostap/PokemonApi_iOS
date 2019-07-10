@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class PokemonListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate{
 
@@ -92,6 +93,9 @@ class PokemonListViewController: UIViewController, UICollectionViewDataSource, U
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "pokemonCell", for: indexPath) as! PokemonListCollectionViewCell
         cell.pokemon = pokemons[indexPath.row]
         cell.type = tipoSelecionado
+        
+        let url = URL(string: pokemons[indexPath.row].imageURL)
+        cell.ivPokemon.kf.setImage(with: url!)
         return cell
     }
     

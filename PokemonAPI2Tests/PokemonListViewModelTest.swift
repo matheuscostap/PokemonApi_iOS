@@ -52,7 +52,7 @@ class PokemonListViewModelTest: XCTestCase {
         self.pokelistViewModel.getPokemonByType(url: "www.teste.com")
     }
     
-    func testGetPokemonImageSuccess(){
+    /*func testGetPokemonImageSuccess(){
         self.repository = PokemonRepository(networkSuccess)
         self.pokelistViewModel = PokemonListViewModel(repository: repository)
         
@@ -74,7 +74,7 @@ class PokemonListViewModelTest: XCTestCase {
             }
         }
         self.pokelistViewModel.getPokemonImage(imageURL: "www.teste.com")
-    }
+    }*/
     
     func testRepositoryJSONData(){
         self.repository = PokemonRepository(networkSuccess)
